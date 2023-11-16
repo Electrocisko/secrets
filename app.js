@@ -5,6 +5,8 @@ import {fileURLToPath} from 'url'
 import { dirname } from 'path'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+// router
+import views_router from './routes/views_router.js';
 
 
 //Crear servidor
@@ -21,12 +23,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(__dirname+'/public'));
 
-
-//Ruta de prueba inicial
-app.get('/', (req,res) => {
-    res.render('home')
-})
-
+//routes
+app.use(views_router)
 
 
 
