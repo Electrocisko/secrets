@@ -7,12 +7,16 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 // router
 import views_router from './routes/views_router.js';
+// database
+import connection from './database/connection.js';
 
 
 //Crear servidor
 const PORT = dotenv_config.app.PORT || 8000;
 const app = express();
 
+//conectar con base de datos
+connection();
 
 // Template config engine
 app.set('views',__dirname+'/views');
