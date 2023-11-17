@@ -15,11 +15,12 @@ const userSignup = async (req, res) => {
 
 const userLogin = async (req,res) => {
     const user = req.user;
-    return res.render('secrets.ejs',{user});
+    return res.redirect('/secrets');
 }
 
 const userLogout = async (req,res) => {
     req.session.destroy();
+
   res.render("home.ejs")
 }
 

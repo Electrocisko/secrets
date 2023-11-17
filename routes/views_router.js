@@ -14,13 +14,21 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get('/error', (req, res) => {
-const message = req.session.messages;
-req.session.destroy();
+router.get("/secrets", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render("secrets");
+  } else {
+    res.redirect("/");
+  }
+});
+
+router.get("/error", (req, res) => {
+  const message = req.session.messages;
+  req.session.destroy();
   res.json({
     status: "error",
-    message
-  })
-})
+    message,
+  });
+});
 
 export default router;
