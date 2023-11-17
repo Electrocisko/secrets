@@ -14,4 +14,13 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.get('/error', (req, res) => {
+const message = req.session.messages;
+req.session.destroy();
+  res.json({
+    status: "error",
+    message
+  })
+})
+
 export default router;

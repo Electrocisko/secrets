@@ -16,3 +16,6 @@ const connection = async () => {
 };
 
 export default connection;
+export {
+  MONGO_URI
+}
