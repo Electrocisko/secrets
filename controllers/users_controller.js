@@ -3,8 +3,7 @@
 
 const userSignup = async (req, res) => {
     try {
-      const user = req.user;
-      return res.render('secrets.ejs',{user});
+      return res.redirect('/secrets');
     } catch (error) {
       return res.json({
         status: "error",

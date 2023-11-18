@@ -8,6 +8,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // router
 import views_router from "./routes/views_router.js";
 import session_router from "./routes/sessions_router.js";
+import secrets_router from "./routes/secrets_router.js";
 // database
 import connection from "./database/connection.js";
 //passport
@@ -56,6 +57,7 @@ app.use(passport.session());
 //routes
 app.use(views_router);
 app.use(session_router);
+app.use(secrets_router);
 
 // server
 app.listen(PORT, () => {

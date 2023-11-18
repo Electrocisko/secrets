@@ -1,5 +1,6 @@
 import { Router } from "express";
 
+
 const router = Router();
 
 router.get("/", (req, res) => {
@@ -14,13 +15,11 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/secrets", (req, res) => {
-  if (req.isAuthenticated()) {
-    res.render("secrets");
-  } else {
-    res.redirect("/");
-  }
-});
+router.get("/submit", (req,res) => {
+  res.render("submit")
+})
+
+
 
 router.get("/error", (req, res) => {
   const message = req.session.messages;
